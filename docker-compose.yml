@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+
+    ports:
+      - '3001:3001'
+    command: node app.js
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - '35432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: emails

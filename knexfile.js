@@ -1,13 +1,6 @@
-// Update with your config settings.
-
 module.exports = {
-  development: {
-    client: 'pg',
-    connection: {
-      database: 'emails',
-      user:     'postgres',
-      password: 'admin'
-    },
-    debug: true,
-  }
+    development: {
+        client: 'pg',
+        connection: "postgres://postgres:admin@postgres:5432/emails"
+    }
 };

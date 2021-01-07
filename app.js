@@ -3,21 +3,16 @@ const app = express()
 const port = 3001;
 const knex = require('knex')(require('./knexfile.js').development);
 
+//Create scheme and seed data if table doesnt exist
+knex.schema.hasTable('emails').then(function(exists) {
+    if (!exists){
+        return knex.migrate.latest().then( ()=>{
+            return knex.seed.run();
+        });
+    }
+});
 
 app.use(express.json())
-
-// app.get('/movies', function(req, res) {
-//     knex
-//       .select('*')
-//       .from('movies')
-//       .then(data => res.status(200).json(data))
-//       .catch(err =>
-//         res.status(404).json({
-//           message:
-//             'The data you are looking for could not be found. Please try again'
-//         })
-//       );
-//   });
 
 app.get('/emails', (req, res) => {
     knex
