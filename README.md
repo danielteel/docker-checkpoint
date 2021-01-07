@@ -17,9 +17,11 @@ GET - /search?query=WhatToSearchForHere
      
 POST - /send
      Sends an email. Body object is expected to look like 
+     ```javascript
      {
         sender:"sendersEmail@email.com"
         recipient:"recipientsEmail@email.com"
         subject:"HOT HOT FIRE"
         message:"hey craig, this is jenny from accounting, the building is on fire so try and leave if you can."
      }
+     ```
